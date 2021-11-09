@@ -39,5 +39,14 @@ namespace XLua.LuaDLL
         {
             return luaopen_ffi(L);
         }
+
+	    [DllImport(LUADLL, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int luaopen_lsqlite3(IntPtr L);
+
+	    [MonoPInvokeCallback(typeof(LuaCSFunction))]
+        internal static int LoadLSQLite3(System.IntPtr L)
+        {
+            return luaopen_lsqlite3(L);
+        }
     }
 }

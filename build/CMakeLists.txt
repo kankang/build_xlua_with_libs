@@ -135,6 +135,20 @@ if (NOT USING_LUAJIT)
 endif ()
 #end FFI
 
+#begin lua-sqlite3
+if (SQLITE)
+	set (LSQLITE3_SRC lsqlite3/lsqlite3.c lsqlite3/sqlite3.c)
+	set_property(
+		SOURCE ${LSQLITE3_SRC}
+		APPEND
+		PROPERTY COMPILE_DEFINITIONS
+		LUA_LIB
+	)
+	list(APPEND THIRDPART_INC  lsqlite3)
+	set (THIRDPART_SRC ${THIRDPART_SRC} ${LSQLITE3_SRC})
+endif ()
+#end lua-sqlite3
+
 if (USING_LUAJIT)
 	
     if (APPLE AND NOT IOS AND NOT ANDROID)

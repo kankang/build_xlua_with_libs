@@ -35,6 +35,14 @@ json处理，特点是Rapid。
 
 裁剪掉函数调用部分，这部分需要用到jit，有些系统行不同（比如ios），故裁剪掉。
 
+## LuaSQLite3 for lua53
+
+LuaSQLite3官网：[http://lua.sqlite.org/index.cgi/home](http://lua.sqlite.org/index.cgi/home)
+
+1. 若使用LuaSQLite3，请使用-DSQLITE=ON
+2. lsqlite.c是在C层对sqlite.h/sqlite.c的lua扩展
+3. LuaSqlite编译后导致xLua库增大，如无必要不要编译
+
 ## 如何使用
 
 * 到[自动编译](https://github.com/chexiongsheng/build_xlua_with_libs/actions)下载你希望使用的版本（lua53,lua54, luajit），解压覆盖Unity工程Assets下Plugins目录，注意是覆盖，别删除后拷
